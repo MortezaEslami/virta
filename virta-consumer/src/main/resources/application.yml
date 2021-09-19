@@ -1,3 +1,8 @@
+spring:
+  application:
+    name: virta-consumer
+  banner:
+    location: banner.txt
 server:
   port: 8081
   servlet:
