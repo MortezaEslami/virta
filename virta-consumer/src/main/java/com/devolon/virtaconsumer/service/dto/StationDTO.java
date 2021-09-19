@@ -90,10 +90,14 @@ public class StationDTO {
     @ApiModel("StationDistanceRq")
     public static class Distance {
 
+        @ApiModelProperty(required = true, example = "35.638397")
         private Double latitude;
 
+        @ApiModelProperty(required = true, example = "51.18324")
         private Double longitude;
 
+        @ApiModelProperty(required = true, example = "10")
         private Double radius;
+
     }
 }
