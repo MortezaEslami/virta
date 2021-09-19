@@ -11,6 +11,7 @@ import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -22,14 +23,18 @@ public class CompanyDTO {
 
     @NotNull
     @Size(max = 100)
+    @ApiModelProperty(required = true, example = "F")
     private String name;
 
     @NotNull
     @Size(max = 100)
+    @ApiModelProperty(required = true, example = "F")
     private String code;
 
+    @ApiModelProperty(example = " Comment")
     private String comment;
 
+    @ApiModelProperty(example = "1")
     private Long parentId;
 
     // ------------------------------
@@ -42,6 +47,9 @@ public class CompanyDTO {
     @ApiModel("CompanyInfo")
     public static class Info extends CompanyDTO {
         private Long id;
+        private Date createdDate;
+        private Date lastModifiedDate;
+        private Integer version;
     }
     // ------------------------------
 

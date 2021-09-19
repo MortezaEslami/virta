@@ -7,13 +7,27 @@
             <column name="ID" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="tbl_company_id_pk"/>
             </column>
-            <column name="C_NAME" type="VARCHAR2(100)"/>
-            <column name="C_CODE" type="VARCHAR2(100)"/>
+            <column name="C_NAME" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="C_CODE" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
             <column name="N_PARENT_ID" type="BIGINT"/>
             <column name="C_COMMENT" type="VARCHAR2(4000)"/>
+            <column name="D_LAST_MODIFIED_DATE" type="TIMESTAMP"/>
+            <column name="D_CREATED_DATE" type="TIMESTAMP"/>
+            <column name="N_VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
-
+    <changeSet author="Morteza" id="add_ForeignKey_company_parent">
+        <addForeignKeyConstraint baseColumnNames="N_PARENT_ID" baseTableName="tbl_company"
+                                 constraintName="FK_COMPANY_PARENT_ID" deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="ID" referencedTableName="tbl_company" validate="true"/>
+    </changeSet>
 
 
 </databaseChangeLog>

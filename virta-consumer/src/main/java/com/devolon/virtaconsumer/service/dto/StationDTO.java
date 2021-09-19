@@ -11,6 +11,7 @@ import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -22,18 +23,27 @@ public class StationDTO {
 
     @NotNull
     @Size(max = 100)
+    @ApiModelProperty(required = true, example = "S10")
     private String name;
 
     @NotNull
     @Size(max = 100)
+    @ApiModelProperty(required = true, example = "S10")
     private String code;
 
+    @NotNull
+    @ApiModelProperty(required = true, example = "35.638397")
     private Double latitude;
 
+    @NotNull
+    @ApiModelProperty(required = true, example = "51.18324")
     private Double longitude;
 
+    @ApiModelProperty(example = " Comment")
     private String comment;
 
+    @NotNull
+    @ApiModelProperty(required = true, example = "1")
     private Long companyId;
 
     // ------------------------------
@@ -48,6 +58,9 @@ public class StationDTO {
         private Long id;
         private Double distance;
         private String companyName;
+        private Date createdDate;
+        private Date lastModifiedDate;
+        private Integer version;
     }
     // ------------------------------
 
