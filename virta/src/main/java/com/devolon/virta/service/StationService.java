@@ -1,9 +1,12 @@
 package com.devolon.virta.service;
 
 import com.devolon.virta.exception.ResourceNotFoundException;
+import com.devolon.virta.model.Company;
 import com.devolon.virta.model.Station;
+import com.devolon.virta.repository.CompanyRepository;
 import com.devolon.virta.repository.StationRepository;
 import com.devolon.virta.service.dto.StationDTO;
+import com.devolon.virta.service.iservice.ICompanyService;
 import com.devolon.virta.service.iservice.IStationService;
 import com.devolon.virta.service.mapper.StationMapper;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +14,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -19,6 +24,8 @@ public class StationService implements IStationService {
 
     private final StationRepository repository;
     private final StationMapper mapper;
+    private final ICompanyService companyService;
+    private final CompanyRepository companyRepository;
 
     @Override
     public StationDTO.Info get(Long id) {
@@ -47,6 +54,24 @@ public class StationService implements IStationService {
     public void delete(Long id) {
         getStation(id);
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<StationDTO.Info> getByCompanyId(Long companyId) {
+        Company company = companyService.getCompany(companyId);
+        List<Long> companies = new ArrayList<>();
+
+        List<Long> childList = companyRepository.findByParentId(companyId);
+        companies.addAll(childList);
+        int i = childList.size();
+        int j = 0;
+        while (j < i) {
+            childList = companyRepository.findByParentId(companies.get(j));
+            i += childList.size();
+            companies.addAll(childList);
+            j++;
+        }
+        return mapper.toDtoInfo(repository.findByCompanyIdIn(companies));
     }
 
     private Station getStation(Long id) {

@@ -49,7 +49,7 @@ public class CompanyService implements ICompanyService {
         repository.deleteById(id);
     }
 
-    private Company getCompany(Long id) {
+    public Company getCompany(Long id) {
         final Optional<Company> entityById = repository.findById(id);
         return entityById.orElseThrow(() -> new ResourceNotFoundException("No result found for your request id = " + id));
     }

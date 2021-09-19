@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "api/v1/stations")
@@ -41,6 +43,11 @@ public class StationRestController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/company/{companyId}")
+    public ResponseEntity<List<StationDTO.Info>> getByCompanyId(@PathVariable Long companyId) {
+        return new ResponseEntity<>(service.getByCompanyId(companyId), HttpStatus.OK);
     }
 
 }
