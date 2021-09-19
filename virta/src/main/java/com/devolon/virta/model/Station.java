@@ -38,4 +38,7 @@ public class Station {
     @Column(name = "N_COMPANY_ID")
     private Long companyId;
 
+    @Column(name = "n_distance")
+    private Double distance;
+
 }

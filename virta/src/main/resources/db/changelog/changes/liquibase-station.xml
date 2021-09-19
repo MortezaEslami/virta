@@ -11,6 +11,7 @@
             <column name="C_CODE" type="VARCHAR2(100)"/>
             <column name="N_LATITUDE" type="NUMERIC"/>
             <column name="N_LONGITUDE" type="NUMERIC"/>
+            <column name="N_DISTANCE" type="NUMERIC"/>
             <column name="N_COMPANY_ID" type="BIGINT"/>
             <column name="C_COMMENT" type="VARCHAR2(4000)"/>
         </createTable>

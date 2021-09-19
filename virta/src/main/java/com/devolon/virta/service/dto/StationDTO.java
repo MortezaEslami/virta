@@ -46,6 +46,8 @@ public class StationDTO {
     @ApiModel("StationInfo")
     public static class Info extends StationDTO {
         private Long id;
+        private Double distance;
+        private String companyName;
     }
     // ------------------------------
 
@@ -67,5 +69,18 @@ public class StationDTO {
         @NotNull
         @ApiModelProperty(required = true)
         private Integer version;
+    }
+
+    @Getter
+    @Setter
+    @Accessors(chain = true)
+    @ApiModel("StationDistanceRq")
+    public static class Distance {
+
+        private Double latitude;
+
+        private Double longitude;
+
+        private Double radius;
     }
 }

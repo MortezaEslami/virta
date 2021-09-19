@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -72,6 +73,15 @@ public class StationService implements IStationService {
             j++;
         }
         return mapper.toDtoInfo(repository.findByCompanyIdIn(companies));
+    }
+
+    @Override
+    public List<StationDTO.Info> getStationsByRadius(StationDTO.Distance distance) {
+        return repository.findStationsByDistance(distance.getLatitude(), distance.getLongitude(), distance.getRadius())
+                .stream()
+                .map(mapper::toDtoInfo)
+                .collect(Collectors.toList());
+
     }
 
     private Station getStation(Long id) {

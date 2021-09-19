@@ -50,4 +50,9 @@ public class StationRestController {
         return new ResponseEntity<>(service.getByCompanyId(companyId), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/distance")
+    public ResponseEntity<List<StationDTO.Info>> getByCompanyId(@RequestBody StationDTO.Distance distance) {
+        return new ResponseEntity<>(service.getStationsByRadius(distance), HttpStatus.OK);
+    }
+
 }

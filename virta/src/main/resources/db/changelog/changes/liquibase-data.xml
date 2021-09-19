@@ -31,19 +31,19 @@
     <changeSet author="Morteza" id="insert-data-02">
     <sql splitStatements="false" stripComments="false">
         <![CDATA[
-                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id) values (1,'S1','S1',' station S1',12.4564 ,37.45654 , 2);
+                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id, n_distance) values (1,'S1','S1',' station S1',35.632717 ,51.27087 , 2, null);
 
                ]]>
     </sql>
         <sql splitStatements="false" stripComments="false">
             <![CDATA[
-                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id) values (2,'S2','S2',' station S2',13.4564 ,36.45654 , 2);
+                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id, n_distance) values (2,'S2','S2',' station S2',35.638257 ,51.22324 , 2, null);
 
                ]]>
         </sql>
         <sql splitStatements="false" stripComments="false">
             <![CDATA[
-                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id) values (3,'S3','S3',' station S3',14.4564 ,51.45654 , 4);
+                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id, n_distance) values (3,'S3','S3',' station S3',35.638297 ,51.18324 , 4, null);
 
                ]]>
         </sql>
