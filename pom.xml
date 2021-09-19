@@ -19,6 +19,7 @@
 
     <modules>
         <module>virta</module>
+        <module>virta-consumer</module>
     </modules>
 
     <build>

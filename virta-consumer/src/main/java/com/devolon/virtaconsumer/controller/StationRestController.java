@@ -1,10 +1,8 @@
-package com.devolon.virta.controller;
+package com.devolon.virtaconsumer.controller;
 
-import com.devolon.virta.service.dto.StationDTO;
-import com.devolon.virta.service.iservice.IStationService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.devolon.virtaconsumer.service.VirtaStationProxy;
+import com.devolon.virtaconsumer.service.dto.StationDTO;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -12,21 +10,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RestController
 @RequestMapping(value = "api/v1/stations")
 public class StationRestController {
 
-    private final IStationService service;
+    private final VirtaStationProxy service;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<StationDTO.Info> get(@PathVariable Long id) {
         return new ResponseEntity<>(service.get(id), HttpStatus.OK);
-    }
-
-    @GetMapping
-    public ResponseEntity<Page<StationDTO.Info>> list(Pageable pageable) {
-        return new ResponseEntity<>(service.list(pageable), HttpStatus.OK);
     }
 
     @PostMapping
