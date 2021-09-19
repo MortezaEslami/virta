@@ -6,9 +6,16 @@ spring:
     url: jdbc:h2:mem:virtadb
     username: user
     password: password
+  liquibase:
+    enabled: true
+    database-change-log-table: Z_LIQ_CHANGELOG
+    database-change-log-lock-table: Z_LIQ_CHANGELOG_LOCK
+    change-log: classpath:db/changelog/liquibase-master.xml
+    user: user
+    password: password
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
   h2:
     console:
       enabled: true

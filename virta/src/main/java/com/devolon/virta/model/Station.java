@@ -21,10 +21,10 @@ public class Station {
     @Column(name = "C_CODE", nullable = false)
     private String code;
 
-    @Column(name = "C_LATITUDE")
+    @Column(name = "N_LATITUDE")
     private Double latitude;
 
-    @Column(name = "C_LONGITUDE")
+    @Column(name = "N_LONGITUDE")
     private Double longitude;
 
     @Column(name = "C_COMMENT", nullable = false)

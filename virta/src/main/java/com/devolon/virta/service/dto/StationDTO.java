@@ -28,9 +28,13 @@ public class StationDTO {
     @Size(max = 100)
     private String code;
 
+    private Double latitude;
+
+    private Double longitude;
+
     private String comment;
 
-    private Long parentId;
+    private Long companyId;
 
     // ------------------------------
 

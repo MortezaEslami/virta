@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="Morteza" id="create_table_station">
+        <createTable tableName="tbl_station">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="tbl_station_id_pk"/>
+            </column>
+            <column name="C_NAME" type="VARCHAR2(100)"/>
+            <column name="C_CODE" type="VARCHAR2(100)"/>
+            <column name="N_LATITUDE" type="NUMERIC"/>
+            <column name="N_LONGITUDE" type="NUMERIC"/>
+            <column name="N_COMPANY_ID" type="BIGINT"/>
+            <column name="C_COMMENT" type="VARCHAR2(4000)"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
+

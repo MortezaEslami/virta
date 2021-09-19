@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="Morteza" id="insert-data-01">
+        <sql splitStatements="false" stripComments="false">
+            <![CDATA[
+                    insert into tbl_company (id,c_name,c_code, c_comment, n_parent_id) values (1,'A','A',' company A', null);
+
+               ]]>
+        </sql>
+        <sql splitStatements="false" stripComments="false">
+            <![CDATA[
+                    insert into tbl_company (id,c_name,c_code, c_comment, n_parent_id) values (2,'B','B',' company B', 1);
+
+               ]]>
+        </sql>
+        <sql splitStatements="false" stripComments="false">
+            <![CDATA[
+                    insert into tbl_company (id,c_name,c_code, c_comment, n_parent_id) values (3,'C','C',' company C', 1);
+
+               ]]>
+        </sql>
+        <sql splitStatements="false" stripComments="false">
+            <![CDATA[
+                    insert into tbl_company (id,c_name,c_code, c_comment, n_parent_id) values (4,'D','D',' company D', 2);
+
+               ]]>
+        </sql>
+    </changeSet>
+    <changeSet author="Morteza" id="insert-data-02">
+    <sql splitStatements="false" stripComments="false">
+        <![CDATA[
+                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id) values (1,'S1','S1',' station S1',12.4564 ,37.45654 , 2);
+
+               ]]>
+    </sql>
+        <sql splitStatements="false" stripComments="false">
+            <![CDATA[
+                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id) values (2,'S2','S2',' station S2',13.4564 ,36.45654 , 2);
+
+               ]]>
+        </sql>
+        <sql splitStatements="false" stripComments="false">
+            <![CDATA[
+                    insert into tbl_station (id,c_name,c_code, c_comment,N_LATITUDE,N_LONGITUDE, n_company_id) values (3,'S3','S3',' station S3',14.4564 ,51.45654 , 4);
+
+               ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>
+
